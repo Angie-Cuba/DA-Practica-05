@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validacion(){
+            var formvalido = true;
+
+            var nom = document.getElementById("nombre").value;
+            if(nom == null || nom.length == 0){
+                alert("Falta ingresar nombre");
+                formvalido = false;
+            }
+
+            var edad = document.getElementById("edad").value;
+            if(isNaN(edad)){ 
+                alert("Falta ingresar edad.");
+                formvalido = false;
+            }
+
+            var DNI = document.getElementById("DNI").value;
+            if(isNaN(DNI)){
+                alert("Falta ingresar DNI");
+                formvalido = false;
+            }
+
+            var cde = document.getElementById("cde").value;
+            if(nom == null || nom.length == 0){
+                alert("Falta ingresar Centro de estudios");
+                formvalido = false;
+            }
+
+
+            var puesto_de_trabajo = document.getElementById("puesto_de_trabajo").selectedIndex;
+            if(puesto_de_trabajo==null || puesto_de_trabajo==0){
+                alert("El puesto de trabajo  no ha sido seleccionado.");
+                formvalido = false;
+            }
+
+            
+           
+            return formvalido;
+        
+        }
+    </script>
+</head>
+<body>
+    <h1>Registro de Empleados</h1>
+    <br />
+    <form method="GET" action="" onsubmit="return validacion()" >
+        <ul>Nombre: <input type="text" name="nombre" id="nombre" /></ul>
+                
+        <ul>Edad: <input type="text" name="edad" id="edad" /></ul>
+              
+        <ul>DNI: <input type="text" name="DNI" id="DNI" /></ul>
+        
+        
+
+        <ul>
+        <li> Centro de estudios:</li> 
+         <input type="text" name="cde" id="cde" />
+         <br>  
+         <br> 
+
+        <li><input type="checkbox" name="cer" id="cer"> Cuenta con certificados</li>
+        <br>  
+        <li>Puesto de trabajo:</li>
+        
+        <select id="puesto_de_trabajo" name="puesto_de_trabajo">
+            <option value=""></option>
+            <option value="1">Contador</option>
+            <option value="2">Secretaria</option>
+            <option value="3">Administrador</option>
+            <option value="4">Finanzas</option>
+            <option value="5">Desarrollo e investigacion</option>
+         </ul>   
+        </select>
+        <br/>
+        <br/>
+       
+        <input type="submit" value="Enviar" name="enviar"> 
+    </form>
+
+</body>
+
+</html>

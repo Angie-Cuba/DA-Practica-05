@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Coste de horas</title>
+    <meta charset="UTF-8">
+</head>    
+    <script>
+function validar(){
+    var total_horas = document.getElementById('n_horas').value;
+    var coste = document.getElementById('coste').value;
+
+    if (total_horas=="" || coste ==""){
+        document.getElementById('area').value="Los dos campos estan en blanco";
+        document.getElementById('n_horas').style.borderColor="red";
+        document.getElementById('coste').style.borderColor="red";
+    
+    } else if (total_horas ==""){
+        document.getElementById('area').value="Error, campo numero de horas esta vacio";
+        document.getElementById('n_horas').style.borderColor="red";
+
+    
+    } else if (coste ==""){
+        document.getElementById('area').value="Error, campo coste de horas esta vacio";
+        document.getElementById('coste').style.borderColor="red";
+
+    } else if (isNaN(total_horas) && isNaN(coste)) {
+        document.getElementById('area').value="Error, ambos campos  esta vacios";
+        document.getElementById('n_horas').style.borderColor="red";
+        document.getElementById('coste').style.borderColor="red";
+
+    } else if (isNaN(total_horas)) {
+        document.getElementById('area').value="Error, el campo horas contiene texto";
+        document.getElementById('n_horas').style.borderColor="red";
+
+    } else if (isNaN(coste)) {
+        document.getElementById('area').value="Error, el campo coste contiene texto";
+        document.getElementById('coste').style.borderColor="red";
+
+    } else{
+
+        procesa(total_horas,coste);
+    }
+
+    function procesa(horas,coste){
+
+        var total= horas*coste;
+
+        document.getElementById('area').value="El coste total de las horas trabajadas es de: "+total;
+
+
+    }
+  
+
+}
+</script>
+</head>
+<section>
+
+    <h1>Coste de horas trabajadas</h1>
+    <br />
+    
+        <article>
+Numero de horas:<input type="text" id="n_horas"><br>
+Coste de horas:<input type="text" id="coste"><br>
+
+<textarea id="area" cols="40" rows="10">
+
+</textarea>
+<br>
+<input type="submit" value="enviar" onclick="validar()">
+
+
+        </article>
+
+    </section>
+
+</html>
